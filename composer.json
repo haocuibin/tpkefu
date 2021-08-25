@@ -1,0 +1,29 @@
+{
+    "name": "topthink/think",
+    "description": "thinkphp kefu framework",
+    "type": "project",
+    "keywords": [
+        "framework",
+        "thinkphp",
+        "ORM",
+        "kefu"
+    ],
+    "homepage": "http://thinkphp.cn/",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "cuibin",
+            "email": "951252220@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "haocuibin/workerman": "dev-master"
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

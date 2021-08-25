@@ -1,0 +1,2 @@
+php vendor\haocuibin\workerman\Config\Events\start_register.php vendor\haocuibin\workerman\Config\Events\start_globaldata.php vendor\haocuibin\workerman\Config\Events\start_gateway.php vendor\haocuibin\workerman\Config\Events\start_businessworker.php
+pause

@@ -1,0 +1,11 @@
+.git
+.idea
+.idea/*
+.env
+composer.lock
+*.log
+runtime/*
+public/uploads/*
+vendor/*
+public/web.config
+
