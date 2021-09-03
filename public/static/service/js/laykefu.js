@@ -67,7 +67,7 @@ $(function () {
     $.getJSON('/service/index/getUserList', function (res) {
         if (1 == res.code && res.data.length > 0) {
             $.each(res.data, function (k, v) {
-                addUser(v);
+                addUser(v, false);
             });
 
             var id = $(".layui-unselect").find('li').eq(0).data('id');
@@ -316,7 +316,6 @@ function showUserMessage(uinfo, content) {
     if ($('#f-' + uinfo.id).length == 0) {
         addUser(uinfo);
     }
-
     // 未读条数计数
     if (!$('#f-' + uinfo.id).hasClass('active')) {
         var num = $('#f-' + uinfo.id).find('span:eq(1)').text();
@@ -382,21 +381,23 @@ function changeUserTab(obj) {
 }
 
 // 添加用户到面板
-function addUser(data) {
+function addUser(data, isBadge = true) {
     var add = true;
-    console.log('data-d');
     $('.layui-nav-item').each(function (i) {
         if ($(this).attr('data-id') == data.id) {
             add = false;
         }
     });
-    console.log(add);
     if (add) {
         var _html = '<li class="layui-nav-item" data-id="' + data.id + '" id="f-' + data.id +
             '" data-name="' + data.name + '" data-avatar="' + data.avatar + '" data-ip="' + data.ip + '">';
         _html += '<img src="' + data.avatar + '">';
         _html += '<span class="user-name">' + data.name + '</span>';
-        _html += '<span class="layui-badge" style="margin-left:5px">0</span>';
+        if (isBadge) {
+            _html += '<span class="layui-badge" style="margin-left:5px">0</span>';
+        } else {
+            _html += '<span style="margin-left:5px"></span>';
+        }
         _html += '<i class="layui-icon close" style="display:none">ဇ</i>';
         _html += '</li>';
         // 添加左侧列表

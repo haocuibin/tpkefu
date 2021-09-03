@@ -34,5 +34,5 @@ return [
     // 应用Trace
     'app_trace'              => false,
     // 图片域名
-    'imageHost' => 'http://192.168.31.152:7092/',
+    'imageHost' => 'http://192.168.31.152:9932/',
 ];

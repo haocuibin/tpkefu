@@ -33,9 +33,7 @@ class Index extends Base
                 'total_in' => 0
             ];
         }
-
-        $dbData = db('service_data')->where('add_date', date('Y-m-d'))->group('add_hour')->select();
-
+        $dbData = db('service_data')->where('add_date', date('Y-m-d'))->group('add_hour')->field('max(is_talking) as is_talking,max(in_queue) as in_queue,max(success_in) as success_in,max(total_in) as total_in,add_hour')->select();
         foreach($line as $key=>$vo){
             foreach($dbData as $k=>$v){
                 if($v['add_hour'] == $key){
@@ -49,7 +47,6 @@ class Index extends Base
                 }
             }
         }
-
         $showData = [];
         foreach($line as $key=>$vo){
             $showData['is_talking'][] = $vo['is_talking'];
@@ -57,7 +54,6 @@ class Index extends Base
             $showData['success_in'][] = $vo['success_in'];
             $showData['total_in'][] = $vo['total_in'];
         }
-
         $this->assign([
             'data' => $data,
             'show_data' => json_encode($showData)

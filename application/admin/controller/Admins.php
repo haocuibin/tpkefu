@@ -43,7 +43,6 @@ class Admins extends Base
 
             $return['total'] = db('admins')->where($where)->count();  //总数据
             $return['rows'] = $result;
-
             return json($return);
 
         }
